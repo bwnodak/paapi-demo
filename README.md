@@ -1,7 +1,9 @@
 # Protected Audience API (PAAPI) Ad Auction Demo
 
 ## Purpose
-This project demonstrates a local implementation of the **Protected Audience API (PAAPI)** using Chrome. It simulates ad auctions where buyers bid for ad space. The key components include bidding logic, ad decision logic, and integration with the `navigator` APIs that manage ad auctions.
+This project demonstrates a local implementation of the **Protected Audience API (PAAPI)** using Chrome. It simulates ad auctions where buyers bid for ad space. The key components include bidding logic, ad decision logic, and integration with the `navigator` APIs that manage ad auctions. This serves as a useful playground for experimenting with ad auctions and gaining a better understanding of the key players involved.
+
+![Screenshot 2024-09-08 at 12 07 16 PM](https://github.com/user-attachments/assets/c697d9a4-89e9-4669-8716-4fadbedd9c83)
 
 ### Key Players:
 1. **`buyer-logic.js`**: Generates bids based on interest group signals. Adjusts bids based on ad performance and trusted signals.
@@ -40,6 +42,9 @@ You will need to configure Chrome to allow insecure localhost SSL certs and allo
 * Open Chrome and visit `chrome://flags`
 * Enable `#allow-insecure-localhost`
 * Enabled `#privacy-sandbox-enrollment-overrides` and add `https://localhost:3000` to the list of allowed sites
+
+![Screenshot 2024-09-08 at 12 05 24 PM](https://github.com/user-attachments/assets/a4b69666-df79-45c6-a06a-e54d7a813e1e)
+
 
 #### From CLI
 

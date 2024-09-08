@@ -17,6 +17,27 @@ const PORT = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Middleware to handle text/plain requests and parse as JSON if possible
+// Necessary because registerAdBeacon sends a text/plain POST request
+app.use((req, res, next) => {
+  if (req.is('text/plain')) {
+    let rawData = '';
+    req.on('data', (chunk) => {
+      rawData += chunk;
+    });
+    req.on('end', () => {
+      try {
+        req.body = JSON.parse(rawData);
+      } catch (e) {
+        req.body = rawData;
+      }
+      next();
+    });
+  } else {
+    next();
+  }
+});
+
 app.use((req, res, next) => {
   res.setHeader('Ad-Auction-Allowed', 'true');
   res.setHeader('Supports-Loading-Mode', 'fenced-frame');

@@ -24,5 +24,12 @@
 </head>
 <body>
   <h1>300x250 Ad Placeholder</h1>
+  <script>
+    window.fence.reportEvent({
+      eventType: "impression",
+      eventData: JSON.stringify({ size: "300x250", foo: "bar", fizz: "buzz" }),
+      destination: ["buyer", "seller"],
+    });
+  </script>
 </body>
 </html>

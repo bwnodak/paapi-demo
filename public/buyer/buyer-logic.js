@@ -19,6 +19,7 @@ function reportWin(auctionSignals, perBuyerSignals, sellerSignals, browserSignal
   const params = {
     auction: auctionSignals.auction,
     size: auctionSignals.size,
+    source: 'buyer',
   };
 
   registerAdBeacon({

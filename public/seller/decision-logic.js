@@ -10,6 +10,7 @@ function reportResult(auctionConfig, browserSignals, directFromSellerSignals) {
   const params = { 
     auction: auctionConfig.auctionSignals.auction,
     size: auctionConfig.auctionSignals.size,
+    source: 'seller',
   };
 
   sendReportTo(createLogURL('auction-result', params));

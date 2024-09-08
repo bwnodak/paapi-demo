@@ -30,6 +30,7 @@ app.route('/logger')
   })
   .post((req, res) => {
     console.log('POST /logger - Payload:', req.body);
+    console.log('POST /logger - Query Params:', req.query);
     res.status(200).send('Logged POST request with payload');
   });
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ad Auction Example</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>My Local Blog</h1>
+  </header>
+
+  <main>
+    <div class="content">
+      <article class="post">
+        <h2 class="post-title">Running Ad Auction Locally</h2>
+        <p class="post-body">
+          This is a demo of running a Privacy Sandbox ad auction using <code>navigator.joinAdInterestGroup</code> and <code>navigator.runAdAuction</code>.
+        </p>
+      </article>
+
+      <div id="ad-container-728x90" class="ad-slot ad-728x90">
+        728x90 Ad Slot (Auction result will appear here)
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <h3>About Me</h3>
+      <p>This is a local development environment for testing ads and blog content.</p>
+
+      <div id="ad-container-300x250" class="ad-slot ad-300x250">
+        300x250 Ad Slot
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 My Local Blog</p>
+  </footer>
+
+  <script src="auction.js"></script>
+</body>
+</html>

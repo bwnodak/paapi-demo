@@ -49,7 +49,6 @@ app.route('/logger')
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Replace manually created SSL certs with devcert
 devcert.certificateFor('localhost').then(ssl => {
   https.createServer(ssl, app).listen(PORT, () => {
     console.log(`Server is running securely on https://localhost:${PORT}`);

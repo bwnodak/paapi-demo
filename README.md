@@ -25,7 +25,7 @@ cd paapi-demo
 npm install
 ```
 
-The repository will install a self-signed certificate to support HTTPS, which is required by the PAAPI. This will happen upon `npm install`, and will likely prompt you for your system password so it can add the cert to your System keychain as a trusted source.
+The repository will install a self-signed certificate to support HTTPS, which is required by the PAAPI. This will happen upon `npm install`, and will likely prompt you for your system password so it can add the cert to your System keychain as a trusted source (on MacOS). The new cert will appear in your keychain as `devcert`.
 
 ### 3. Chrome Configuration
 

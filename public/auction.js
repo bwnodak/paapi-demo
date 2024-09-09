@@ -41,9 +41,10 @@ async function runAdAuction(size, containerId) {
     // Display the ad result in the appropriate container
     if (result && window.FencedFrameConfig && result instanceof FencedFrameConfig) {
       const frame = document.createElement('fencedframe');
-      frame.config = result;
+      frame.style.border = '0';
       frame.width = size === '728x90' ? 728 : 300;
       frame.height = size === '728x90' ? 90 : 250;
+      frame.config = result;
 
       document.getElementById(containerId).replaceChildren(frame);
     } else {

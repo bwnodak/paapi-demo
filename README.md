@@ -25,16 +25,9 @@ cd paapi-demo
 npm install
 ```
 
-### 3. Certificates
+The repository will install a self-signed certificate to support HTTPS, which is required by the PAAPI. This will happen upon `npm install`, and will likely prompt you for your system password so it can add the cert to your System keychain as a trusted source.
 
-The repository includes a self-signed certificate (localhost.crt and localhost.key) to support HTTPS, which is required by the PAAPI.
-
-#### Adding the Certificate to the macOS Keychain:
-1. Open Keychain Access.
-2. Drag localhost.crt into the **System** keychain.
-3. Double-click the certificate, expand Trust, and set When using this certificate to Always Trust.
-
-### 4. Chrome Configuration
+### 3. Chrome Configuration
 
 You will need to configure Chrome to allow insecure localhost SSL certs and allow localhost to use Privacy Sandbox features without enrollment or attestation.
 
@@ -56,11 +49,17 @@ You will need to configure Chrome to allow insecure localhost SSL certs and allo
   * Open Chrome and navigate to `chrome://flags`
   * Enable **"Allow invalid certificates for resources loaded from localhost"**.
 
-### 5. Start the Server
+### 4. Start the Server
 Run the following command to start the server:
 
 ```bash
 node start
+```
+
+You can also use dev-mode, which will automatically restard the server when you make changes to it:
+
+```bash
+node run dev
 ```
 
 Once the server is running, open Chrome and navigate to: `https://localhost:3000`.

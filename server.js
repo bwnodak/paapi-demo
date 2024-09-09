@@ -1,24 +1,16 @@
 const express = require('express');
 const https = require('https');
-const fs = require('fs');
+const devcert = require('devcert');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-// Load self-signed certificate (generated in Step 1)
-const httpsOptions = {
-  key: fs.readFileSync('localhost.key'),
-  cert: fs.readFileSync('localhost.crt'),
-};
-
 const app = express();
 const PORT = 3000;
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware to handle text/plain requests and parse as JSON if possible
-// Necessary because registerAdBeacon sends a text/plain POST request
 app.use((req, res, next) => {
   if (req.is('text/plain')) {
     let rawData = '';
@@ -57,6 +49,11 @@ app.route('/logger')
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-https.createServer(httpsOptions, app).listen(PORT, () => {
-  console.log(`Server is running securely on https://localhost:${PORT}`);
+// Replace manually created SSL certs with devcert
+devcert.certificateFor('localhost').then(ssl => {
+  https.createServer(ssl, app).listen(PORT, () => {
+    console.log(`Server is running securely on https://localhost:${PORT}`);
+  });
+}).catch(err => {
+  console.error('Error setting up SSL with devcert:', err);
 });
